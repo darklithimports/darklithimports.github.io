@@ -2037,7 +2037,7 @@ const SPOTIFY={
 (()=>{
   const btn=$("#mus"); let on=false,started=false,fadeT=null; const VOL=.6;
   let pref="on"; try{pref=localStorage.getItem("dk-music")||"on";}catch(e){}
-  const TRACKS=["music/ambiente-1.mp3","music/ambiente-2.mp3","music/ambiente-3.mp3","music/ambiente-4.mp3"]; let ti=Math.floor(Math.random()*TRACKS.length);
+  const TRACKS=["music/ambiente-1.m4a","music/ambiente-2.m4a","music/ambiente-3.m4a","music/ambiente-4.m4a"]; let ti=Math.floor(Math.random()*TRACKS.length);
   const au=new Audio(); au.src=TRACKS[ti]; au.loop=false; au.preload="none"; au.addEventListener("ended",()=>{ ti=(ti+1)%TRACKS.length; au.src=TRACKS[ti]; if(on) au.play().catch(()=>{}); }); au.addEventListener("error",()=>{ if(!on) return; ti=(ti+1)%TRACKS.length; au.src=TRACKS[ti]; setTimeout(()=>{ if(on) au.play().catch(()=>{}); },800); }); au.setAttribute("playsinline",""); au.volume=0;
   function fadeTo(v,ms,done){ clearInterval(fadeT); const st=au.volume, t0=Date.now(); fadeT=setInterval(()=>{ const k=Math.min(1,(Date.now()-t0)/ms); try{au.volume=st+(v-st)*k;}catch(e){} if(k>=1){ clearInterval(fadeT); done&&done(); } },50); }
   function play(){ on=true; btn.setAttribute("aria-pressed","true"); au.volume=0; const pr=au.play(); if(pr&&pr.catch) pr.catch(()=>{ on=false; btn.setAttribute("aria-pressed","false"); }); fadeTo(VOL,1500); }

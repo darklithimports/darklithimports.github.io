@@ -1,0 +1,252 @@
+/* Raven Witch · pixel gótico + dark fantasy de quadrinho.
+   Paleta: noite violeta (base) · carmesim (acento) · osso (luz e texto) · ouro velho (detalhe) · malva (meio-tom).
+   O pixel vem da bruxinha (botões, fonte de títulos, molduras em degrau); o quadrinho vem da tinta preta grossa,
+   das caixas de legenda cor de osso e das sombras carmesim deslocadas. */
+:root {
+  --night: #0b0810; --night2: #140d19; --night3: #1f1427;
+  --violet: #4a3566; --violet2: #7c62a8;
+  --mauve: #9c5a72;
+  --crimson: #8a2a6e; --crimson2: #c2459a;
+  --gold: #e3cf86;
+  --bone: #eee4d3; --bone2: #b9a998;
+  --inkk: #050307;
+  --px: 3px;
+  --pxb: var(--px) 0 0 0 var(--k), calc(var(--px) * -1) 0 0 0 var(--k), 0 var(--px) 0 0 var(--k), 0 calc(var(--px) * -1) 0 0 var(--k);
+  --card: var(--night2);
+}
+body { background: radial-gradient(120% 60% at 50% 0%, #1a0f1f 0%, var(--night) 60%) fixed, var(--night); }
+
+/* títulos: fonte pixel cor de osso com sombra carmesim de quadrinho */
+.h2 { background: none; -webkit-background-clip: border-box; background-clip: border-box; color: var(--bone); font-weight: 700; letter-spacing: 0.02em; text-shadow: 3px 3px 0 var(--crimson), 6px 6px 0 var(--inkk); }
+.h2 .line-mask > span { background: none; -webkit-background-clip: border-box; background-clip: border-box; }
+.final__title { color: var(--bone); text-shadow: 4px 4px 0 var(--crimson), 8px 8px 0 var(--inkk); }
+.eyebrow { letter-spacing: 0.16em; font-size: 13px; color: var(--gold); }
+.eyebrow::before { content: ''; width: 14px; height: 14px; background: currentColor; -webkit-mask: var(--pent-mask) center / contain no-repeat; mask: var(--pent-mask) center / contain no-repeat; }
+:root { --pent-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-50 -50 100 100'%3E%3Ccircle r='45' fill='none' stroke='%23000' stroke-width='7'/%3E%3Cpath d='M0 44 L-25.9 -35.6 L41.8 13.6 L-41.8 13.6 L25.9 -35.6 Z' fill='none' stroke='%23000' stroke-width='7'/%3E%3C/svg%3E"); }
+.svc h3, .notice b, .seal span, .tabs a, .fab, .capbox { letter-spacing: 0.08em; }
+.svc h3 { color: var(--bone); }
+.sec__num { font-weight: 700; color: var(--crimson2); }
+.cta-big span { background: none; color: var(--bone); -webkit-background-clip: border-box; background-clip: border-box; }
+.menu__p, .svc__p, .star__p, .seal b { color: var(--gold); }
+
+/* divisores com pentagrama invertido que se desenha ao aparecer */
+.div__pent { width: 26px; height: 26px; color: var(--crimson2); filter: drop-shadow(0 0 6px rgba(194, 69, 154, 0.7)); }
+.div i { color: var(--gold); }
+.div b { color: var(--bone2); }
+[data-draw] use { stroke-dasharray: 400; stroke-dashoffset: 400; transition: stroke-dashoffset 1.8s cubic-bezier(.6, 0, .2, 1); }
+[data-draw].on use { stroke-dashoffset: 0; }
+.nav__mark { width: 18px; height: 18px; color: var(--crimson2); }
+
+/* botões de jogo (pixel) nas cores da marca */
+.btn { border-radius: 0; letter-spacing: 0.1em; font-size: 0.8125rem; transition: transform 0.12s steps(2), box-shadow 0.12s steps(2), background-color .12s; }
+.btn--primary {
+  --k: var(--inkk);
+  color: var(--inkk); background: var(--bone);
+  box-shadow: inset 3px 3px 0 #fff8ec, inset -3px -3px 0 var(--bone2), var(--pxb), 6px 6px 0 0 var(--crimson);
+}
+.btn--primary:hover { background: #fff8ec; transform: translate(-2px, -2px); box-shadow: inset 3px 3px 0 #fff, inset -3px -3px 0 var(--bone2), var(--pxb), 8px 8px 0 0 var(--crimson2); }
+.btn--secondary {
+  --k: var(--crimson);
+  color: var(--bone); background: var(--night3);
+  box-shadow: inset 3px 3px 0 var(--violet), inset -3px -3px 0 var(--night), var(--pxb), 6px 6px 0 0 var(--inkk);
+}
+.btn--secondary:hover { background: var(--violet); transform: translate(-2px, -2px); }
+.btn:active { transform: translate(2px, 2px); }
+
+.cta-big { --k: var(--crimson2); border: 0; background: var(--crimson); box-shadow: inset 4px 4px 0 var(--crimson2), inset -4px -4px 0 #4a1240, var(--pxb), 8px 8px 0 0 var(--inkk); font-weight: 700; }
+.cta-big::before { inset: 10px; border: 2px dashed rgba(238, 228, 211, 0.35); }
+.cta-big:hover { background: var(--crimson2); }
+
+.fab { --k: var(--inkk); border: 0; border-radius: 0; background: var(--bone); color: var(--inkk); box-shadow: inset 3px 3px 0 #fff8ec, inset -3px -3px 0 var(--bone2), var(--pxb), 5px 5px 0 var(--crimson); }
+
+/* caixas do catálogo: janelas de grimório (borda dupla em degrau, canto carmesim) */
+.svc, .frame, .notice, .seal, .star, .card {
+  --k: var(--violet);
+  border: 0; border-radius: 0; background: linear-gradient(180deg, var(--night3), var(--night2));
+  box-shadow: inset 0 0 0 3px var(--inkk), inset 0 0 0 5px rgba(124, 98, 168, 0.35), var(--pxb), 6px 6px 0 0 var(--inkk);
+}
+.svc::before, .frame::before, .seal::before { inset: 9px; border: 1px dashed rgba(227, 207, 134, 0.28); }
+.svc:hover { --k: var(--crimson2); background: linear-gradient(180deg, #2a1430, var(--night2)); transform: translate(-2px, -2px); }
+.svc { transition: transform .15s steps(2), background .2s; }
+.svc__sep::after { border-color: rgba(227, 207, 134, 0.35); }
+.sec--gold .svc { --k: #8a6a30; }
+.sec--lilith .svc { --k: var(--crimson); }
+.notice { background: linear-gradient(180deg, #24122c, var(--night2)); --k: var(--crimson); }
+
+/* quadrinho: legendas cor de osso com tinta preta e sombra carmesim */
+.kicker--box, .capbox { --k: var(--inkk); border: 0; rotate: -1.5deg; background: var(--bone); color: var(--inkk); box-shadow: var(--pxb), 5px 5px 0 var(--crimson); font-weight: 700; }
+/* balão: caixa de diálogo de jogo com borda de osso */
+.balloon { --k: var(--bone2); border: 0; border-radius: 0; background: var(--night); color: var(--bone); box-shadow: inset 0 0 0 3px var(--night), inset 0 0 0 6px var(--violet), var(--pxb), 6px 6px 0 0 var(--crimson); padding: 18px 26px; }
+.balloon::after { content: "▼"; left: auto; right: 14px; bottom: 6px; width: auto; height: auto; background: none; border: 0; transform: none; color: var(--crimson2); font: 700 12px/1 var(--cap); animation: rw-blink 1s steps(2) infinite; }
+@keyframes rw-blink { 50% { opacity: 0; } }
+
+/* quadros das ilustrações: tinta de quadrinho (preto grosso + filete de osso) e sombra carmesim */
+.panel { --k: var(--bone2); border: 0; outline: 0; box-shadow: 0 0 0 5px var(--inkk), 0 0 0 7px var(--bone2), 0 0 0 11px var(--inkk), 14px 14px 0 9px var(--crimson); }
+
+/* navegação */
+.tabs { border: 0; background: var(--night2); box-shadow: inset 0 0 0 2px var(--violet); padding: 4px; }
+.tabs a { font-weight: 500; color: var(--bone2); }
+.tabs a[aria-current] { background: var(--bone); color: var(--inkk); box-shadow: inset 2px 2px 0 #fff8ec, inset -2px -2px 0 var(--bone2), 3px 3px 0 var(--crimson); }
+.tabp__x { border: 0; box-shadow: inset 0 0 0 2px var(--crimson); }
+
+/* parede de prints */
+.t3d-card { border: 0; background: var(--night2); box-shadow: 0 0 0 3px var(--inkk), 0 0 0 5px var(--violet); }
+.t3d-card:hover { box-shadow: 0 0 0 3px var(--inkk), 0 0 0 5px var(--crimson2); }
+
+/* fundo das seções: brasa carmesim no topo, névoa violeta embaixo; pentagrama gigante e apagado no fundo */
+.sec::before { background: radial-gradient(40% 160px at 50% 0, rgba(138, 42, 110, 0.22), transparent 100%), radial-gradient(50% 200px at 50% 100%, rgba(74, 53, 102, 0.25), transparent 100%); }
+.sec--lilith::after, .final::after {
+  content: ""; position: absolute; left: 50%; top: 4%; width: min(900px, 120vw); aspect-ratio: 1; translate: -50% 0; z-index: -1; pointer-events: none;
+  background: rgba(138, 42, 110, 0.09); -webkit-mask: var(--pent-mask) center / contain no-repeat; mask: var(--pent-mask) center / contain no-repeat;
+  animation: rw-turn 120s linear infinite;
+}
+.final::after { top: auto; bottom: 2%; }
+@keyframes rw-turn { to { rotate: 360deg; } }
+
+/* SELO RITUAL do herói: gira em volta da esfera (posição em site.js) */
+.sigil { position: absolute; left: 0; top: 0; width: 10px; aspect-ratio: 1; pointer-events: none; z-index: 1; mix-blend-mode: screen; opacity: 0; transition: opacity 1.6s ease 1.2s; will-change: transform; }
+.sigil.on { opacity: 1; }
+.sigil svg { width: 100%; height: 100%; overflow: visible; }
+.sg { fill: none; stroke: var(--crimson2); stroke-width: 1.1; vector-effect: non-scaling-stroke; }
+.sg--thin { stroke: rgba(238, 228, 211, 0.45); stroke-width: 1; }
+.sg--dash { stroke: rgba(227, 207, 134, 0.6); stroke-dasharray: 2 6; }
+.sg--star { stroke: var(--crimson2); stroke-width: 1.6; filter: drop-shadow(0 0 6px rgba(194, 69, 154, 0.9)); stroke-dasharray: 1200; stroke-dashoffset: 1200; }
+.sigil.on .sg--star { stroke-dashoffset: 0; transition: stroke-dashoffset 3.2s cubic-bezier(.6, 0, .2, 1) 1.4s; }
+.sigil__txt { font: 700 6px var(--cap); fill: rgba(238, 228, 211, 0.75); letter-spacing: 1px; }
+.sigil__spin { transform-origin: 0 0; transform: rotate(var(--spin, 0deg)); }
+.sigil__star { transform-origin: 0 0; animation: rw-breathe 5s ease-in-out infinite; }
+@keyframes rw-breathe { 50% { transform: scale(1.04); } }
+
+/* FINAL: a ilustração da bruxinha abaixo do convite, numa moldura de pixel + anel ritual em volta */
+.final { min-height: 0; padding-bottom: 12vh; }
+.final .obj--fechamento { position: relative; left: auto; bottom: auto; translate: none; width: 100%; margin: 0; }
+.witch-frame { --k: var(--bone2); position: relative; width: min(680px, 100%); margin: 22vh auto 0; box-shadow: 0 0 0 5px var(--inkk), 0 0 0 7px var(--bone2), 0 0 0 11px var(--inkk), 14px 14px 0 9px var(--crimson); }
+.witch-ring { position: absolute; left: 50%; top: 50%; width: 150%; aspect-ratio: 1; translate: -50% -50%; pointer-events: none; z-index: -1; }
+.witch-ring svg { width: 100%; height: 100%; overflow: visible; animation: rw-turn 90s linear infinite; }
+@media (max-width: 760px) {
+  .final { padding-bottom: 8vh; }
+  .witch-frame { margin-top: 10vh; }
+  .witch-ring { width: 165%; }
+  .sigil__txt { font-size: 9px; }
+}
+
+/* rastro de brasas do cursor */
+.cursor-fx { position: fixed; inset: 0; z-index: 90; pointer-events: none; }
+.cursor-fx canvas { width: 100%; height: 100%; display: block; }
+@media (hover: none) { .cursor-fx { display: none; } }
+
+::selection { background: var(--crimson); color: var(--bone); }
+.witch-ring .sigil__txt { font-size: 4.6px; fill: rgba(238, 228, 211, 0.55); }
+
+/* ============ v3 · mais sério e profissional, mesma essência ============ */
+:root { --display: 'Cormorant Garamond', Georgia, serif; }
+/* títulos de seção em serifa elegante (o pixel fica nos rótulos, botões e no nome do herói) */
+.h2, .final__title { font-family: var(--display); font-weight: 500; letter-spacing: 0.01em; text-transform: none; text-shadow: 0 2px 0 rgba(138, 42, 110, 0.55); }
+.sec__h { font: 500 clamp(30px, 4.4vw, 50px)/1.08 var(--display); letter-spacing: 0.06em; background: none; -webkit-background-clip: border-box; background-clip: border-box; color: var(--bone); text-shadow: 0 2px 0 rgba(138, 42, 110, 0.55); }
+.sec__sub { font-style: italic; color: var(--bone2); }
+.svc h3 { font-family: var(--cap); font-weight: 500; }
+/* sem inclinações de brincadeira */
+.panel, .kicker--box, .capbox, .panel--taro, .panel--side, .panel--lil, .panel--como { rotate: 0deg !important; }
+.balloon::after { content: none; }
+.balloon { font-style: italic; }
+.hero__lead .balloon { box-shadow: inset 0 0 0 1px rgba(214, 196, 172, 0.25), 4px 4px 0 0 var(--crimson); background: rgba(11, 8, 16, 0.75); }
+
+/* herói: botões juntos do texto, à esquerda (a mão e o portal ficam livres) */
+.hero__foot { grid-template-columns: minmax(0, 36%); }
+.hero__ctas { margin-top: 24px; }
+.hero__scroll { color: var(--gold); }
+.hero__scroll i::after { background: var(--crimson2); box-shadow: 0 10px 0 rgba(194, 69, 154, .5), 0 20px 0 rgba(194, 69, 154, .2); }
+
+/* menu */
+.tabs__cli.is-on { color: var(--bone); box-shadow: inset 0 -2px 0 var(--crimson2); }
+.sub a[data-tab] { color: var(--bone); }
+
+/* FEITIÇOS & RITUAIS: duas portas */
+.doors { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(24px, 4vw, 56px); max-width: 1100px; margin: 0 auto; }
+.door { display: grid; gap: 30px; align-content: start; }
+.panel--door { max-width: none; }
+.door__t { --k: var(--violet); display: grid; gap: 14px; justify-items: start; padding: 28px 28px 30px; background: linear-gradient(180deg, var(--night3), var(--night2)); box-shadow: inset 0 0 0 3px var(--inkk), inset 0 0 0 5px rgba(124, 98, 168, 0.35), var(--pxb), 6px 6px 0 0 var(--inkk); }
+.door__h { font: 500 clamp(36px, 4vw, 52px)/1 var(--display); color: var(--bone); letter-spacing: 0.02em; text-shadow: 0 2px 0 rgba(138, 42, 110, 0.55); }
+.door__cats { display: grid; gap: 6px; margin-bottom: 8px; }
+.door__cats li { position: relative; padding-left: 20px; color: var(--tx); font-size: 1.125rem; }
+.door__cats li::before { content: ''; position: absolute; left: 0; top: 0.42em; width: 11px; height: 11px; background: var(--crimson2); -webkit-mask: var(--pent-mask) center / contain no-repeat; mask: var(--pent-mask) center / contain no-repeat; }
+.door .btn { --h: 52px; }
+@media (max-width: 860px) { .doors { grid-template-columns: 1fr; } }
+
+/* painéis de Feitiços e Rituais (abrem por botão) */
+.tabp { overscroll-behavior: contain; }
+.tabp__bar { position: sticky; top: 0; z-index: 3; display: flex; align-items: center; gap: 16px; padding: calc(env(safe-area-inset-top, 0px) + 14px) max(16px, var(--gutter)) 14px; background: rgba(11, 8, 16, 0.96); border-bottom: 1px solid rgba(214, 196, 172, 0.14); }
+.tabp__bar .tabp__x { margin: 0; }
+.tabp__t { flex: 1; font: 500 clamp(26px, 3vw, 36px)/1 var(--display); color: var(--bone); display: flex; align-items: baseline; gap: 14px; }
+.tabp__t small { font: 500 11px/1 var(--cap); letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); }
+.tabp__chips { position: sticky; top: var(--bar-h, 70px); z-index: 2; display: flex; gap: 10px; overflow-x: auto; padding: 12px max(16px, var(--gutter)); background: rgba(11, 8, 16, 0.92); scrollbar-width: none; }
+.chip { --k: var(--violet); flex: none; padding: 10px 14px; font: 500 11px/1 var(--cap); letter-spacing: 0.12em; text-transform: uppercase; color: var(--bone2); background: var(--night2); box-shadow: inset 0 0 0 2px rgba(124, 98, 168, 0.5); }
+.chip:hover { color: var(--bone); box-shadow: inset 0 0 0 2px var(--crimson2); }
+.tabp__in { padding-top: 0; }
+.tabp--cat .sec { padding-top: 64px; }
+.tabp__end { display: grid; justify-items: center; gap: 18px; text-align: center; padding: 40px var(--gutter) 90px; }
+.tabp .lil__txt { display: grid; justify-items: center; gap: 18px; margin-bottom: 30px; }
+.tabp .lil__q { font-style: italic; font-size: 1.25rem; color: var(--bone); }
+@media (max-width: 760px) {
+  .tabp__bar { gap: 10px; }
+  .tabp__bar .btn { display: none; }
+  .tabp__t { font-size: 26px; }
+}
+
+/* ORÁCULO: a bruxinha + a caixa da carta */
+.oraculo { padding-bottom: 6vh; }
+.ora { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: clamp(36px, 5vw, 80px); align-items: center; max-width: 1180px; margin: 0 auto; padding: 0 var(--gutter); }
+.oraculo .witch-frame { margin: 0; width: 100%; }
+.oraculo .witch-ring { width: 142%; }
+.ora__box { --k: var(--bone2); position: relative; padding: 34px 32px; background: rgba(11, 8, 16, 0.86); box-shadow: inset 0 0 0 3px var(--night), inset 0 0 0 5px var(--violet), var(--pxb), 8px 8px 0 0 var(--crimson); min-height: 380px; display: grid; align-content: center; }
+.ora__say { font: italic 400 1.3rem/1.45 var(--display); color: var(--bone); }
+.ora__q { margin-top: 22px; font: 500 12px/1 var(--cap); letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); }
+.ora__pick { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 18px; }
+.ora__busy { display: grid; justify-items: center; gap: 16px; color: var(--bone2); font: 500 12px/1 var(--cap); letter-spacing: 0.2em; text-transform: uppercase; }
+.ora__dots { display: flex; gap: 8px; }
+.ora__dots i { width: 10px; height: 10px; background: var(--crimson2); animation: rw-dot 1s steps(2) infinite; }
+.ora__dots i:nth-child(2) { animation-delay: .33s; } .ora__dots i:nth-child(3) { animation-delay: .66s; }
+@keyframes rw-dot { 50% { opacity: .2; } }
+.ora__res { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 26px; align-items: start; }
+.ora__res[hidden], .ora__ask[hidden], .ora__busy[hidden] { display: none; }
+.arc { width: 150px; aspect-ratio: 3 / 5; perspective: 800px; }
+.arc__in { position: relative; width: 100%; height: 100%; transform-style: preserve-3d; transition: transform 1.1s cubic-bezier(.3, 1.3, .5, 1); transform: rotateY(0deg) scale(.86); }
+.arc.is-open .arc__in { transform: rotateY(180deg) scale(1); }
+.arc__back, .arc__front { position: absolute; inset: 0; backface-visibility: hidden; display: grid; place-items: center; }
+.arc__back { background: repeating-linear-gradient(45deg, #2a1430 0 6px, #1f1020 6px 12px); box-shadow: inset 0 0 0 3px var(--inkk), inset 0 0 0 6px var(--gold), 6px 6px 0 var(--inkk); }
+.arc__back svg { width: 60%; height: 60%; color: var(--crimson2); }
+.arc__front { transform: rotateY(180deg); grid-template-rows: auto 1fr auto; padding: 14px 10px; background: linear-gradient(180deg, #f1e7d6, #d9c9b1); color: var(--inkk); box-shadow: inset 0 0 0 3px var(--inkk), inset 0 0 0 6px var(--crimson), inset 0 0 0 8px #f1e7d6, inset 0 0 0 9px var(--gold), 6px 6px 0 var(--crimson); text-align: center; }
+.arc__num { font: 700 20px/1 var(--cap); color: var(--crimson); }
+.arc__mark { width: 62%; height: auto; aspect-ratio: 1; color: var(--crimson); align-self: center; justify-self: center; }
+.arc__name { font: 600 15px/1.1 var(--display); text-transform: uppercase; letter-spacing: .04em; }
+.ora__k { font: 500 11px/1 var(--cap); letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); }
+.ora__n { margin-top: 10px; font: 500 clamp(28px, 3vw, 38px)/1.05 var(--display); color: var(--bone); }
+.ora__w { margin-top: 6px; font: 500 11px/1.4 var(--cap); letter-spacing: 0.12em; text-transform: uppercase; color: var(--crimson2); }
+.ora__t { margin-top: 14px; font-size: 1.15rem; line-height: 1.5; color: var(--tx); }
+.ora__note { margin-top: 12px; font-style: italic; color: var(--bone2); font-size: 0.98rem; }
+.ora__ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 20px; }
+.ora__res .ora__msg { opacity: 0; transform: translateY(8px); transition: opacity .6s ease .7s, transform .6s ease .7s; }
+.arc.is-open + .ora__msg { opacity: 1; transform: none; }
+.ora__legal { margin: 40px auto 0; max-width: 60ch; text-align: center; font-size: .9rem; color: var(--bone2); font-style: italic; padding: 0 var(--gutter); }
+@media (max-width: 900px) {
+  .ora { grid-template-columns: 1fr; }
+  .oraculo .witch-ring { width: 150%; }
+  .ora__box { min-height: 0; padding: 26px 20px; }
+  .ora__res { grid-template-columns: 1fr; justify-items: center; text-align: center; }
+  .ora__ctas, .ora__pick { justify-content: center; }
+}
+/* o final volta a ser só o convite */
+.final { padding-top: 16vh; }
+.final::after { bottom: auto; top: 8%; }
+.witch-frame .obj--fechamento { position: relative; left: auto; right: auto; bottom: auto; top: auto; translate: none; width: 100%; margin: 0; }
+.tabp { background: #0b0810; }
+.ora__n { font-size: clamp(26px, 2.6vw, 34px); }
+@media (max-width: 760px) {
+  .hero__foot { grid-template-columns: 1fr; }
+  .hero__lead .balloon, .hero__tagl { display: none; }
+  .hero__ctas { margin-top: 14px; }
+  .hero__ctas .btn { font-size: 0.75rem; }
+}
+/* sem o pentagrama grande no portal nem no fundo das seções */
+.sec--lilith::after, .final::after { content: none; }
+.hero__bruxa { position: absolute; left: 0; top: 0; width: 1px; pointer-events: none; }

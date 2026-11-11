@@ -1,0 +1,12 @@
+.num__grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(32px, 5vw, 80px); align-items: center; }
+.obj--lua { width: 86%; }
+.num__r { display: grid; min-width: 0; }
+.stats { margin-top: 44px; display: grid; grid-template-columns: 1fr 1fr; gap: 0 28px; }
+.stat { padding: 22px 0 26px; border-top: 1px solid var(--line); display: grid; gap: 6px; align-content: start; }
+.stat b { font-weight: 400; font-size: clamp(2.6rem, 4vw, 3.75rem); line-height: 1; letter-spacing: -0.045em; font-variant-numeric: tabular-nums; }
+.stat span { font-size: 0.875rem; color: var(--ink-2); max-width: 24ch; }
+@media (max-width: 860px) { .num__grid { grid-template-columns: 1fr; } .obj--lua { width: 92%; margin: 0 auto; } }
+/* Raven Witch: sem objeto, números em quatro colunas */
+.numeros .num__r { max-width: 1160px; }
+.numeros .stats { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+@media (max-width: 860px) { .numeros .stats { grid-template-columns: 1fr 1fr; } }

@@ -1,0 +1,21 @@
+.btn {
+  --h: 48px;
+  display: inline-flex; align-items: center; gap: 10px; height: var(--h); padding: 0 20px 0 16px;
+  border-radius: var(--r-btn); font-family: var(--cap); font-weight: 600; font-size: 0.75rem; letter-spacing: 0.18em; text-transform: uppercase; line-height: 1;
+  white-space: nowrap; cursor: pointer; border: 0;
+  transition: transform 0.35s var(--ease-out), box-shadow 0.35s var(--ease-out), background-color 0.35s var(--ease-out), border-color 0.35s var(--ease-out);
+}
+.btn__ico { width: 14px; height: 14px; flex: none; }
+.btn:active { transform: scale(0.97); }
+.btn--primary {
+  color: var(--paper-ink); background: linear-gradient(180deg, var(--t1), var(--t2) 60%, var(--t3));
+  box-shadow: 3px 3px 0 var(--ink), 0 10px 30px -8px rgba(120, 40, 110, 0.8);
+}
+.btn--primary:hover { box-shadow: 4px 4px 0 var(--ink), 0 14px 40px -6px rgba(120, 40, 110, 0.95); }
+.btn--secondary {
+  color: var(--t1); background: linear-gradient(180deg, rgba(24, 16, 30, 0.92), rgba(11, 8, 16, 0.92));
+  box-shadow: inset 0 0 0 1px var(--bd), 3px 3px 0 var(--ink);
+}
+.btn--secondary:hover { box-shadow: inset 0 0 0 1px var(--t2), 3px 3px 0 var(--ink); }
+.btn--sm { --h: 38px; padding: 0 14px; font-size: 0.875rem; }
+.btn--block { width: 100%; justify-content: center; }

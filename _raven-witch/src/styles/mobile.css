@@ -1,0 +1,67 @@
+/* Raven Witch · celular: menu compacto, nome sobre a mesa (longe do rosto), botão flutuante discreto, cartões enxutos */
+@media (max-width: 760px) {
+  :root { --top-h: 128px; }
+  .nav__in { padding-block: 8px 6px; gap: 8px; }
+  .nav__brand { font-size: 1.15rem; }
+  .nav__cta { --h: 36px; padding: 0 12px; font-size: 0.72rem; letter-spacing: 0.12em; }
+  .tabs { overflow-x: auto; scrollbar-width: none; padding: 3px; gap: 2px; }
+  .tabs::-webkit-scrollbar, .sub::-webkit-scrollbar { display: none; }
+  .tabs a { flex: none; padding: 8px 11px; min-height: 34px; font-size: 11px; letter-spacing: 0.1em; }
+  .sub { overflow-x: auto; white-space: nowrap; scrollbar-width: none; padding-block: 6px 8px; gap: 4px; }
+  .sub a { font-size: 11.5px; letter-spacing: 0.12em; }
+
+  /* herói: o nome desce para cima da mesa, o rosto fica livre */
+  .hero { min-height: 600px; }
+  .hero__title { top: auto; bottom: 84px; left: 16px; right: 40px; font-size: min(17vw, 9vh); line-height: 0.95; }
+  .hero__foot { left: 16px; right: 16px; bottom: 22px; }
+  .hero__lead .kicker--box { display: none; }
+  .hero__ctas { margin-top: 0; gap: 10px; flex-wrap: nowrap; }
+  .hero__ctas .btn { --h: 44px; flex: 1 1 0; padding: 0 10px; font-size: 0.72rem; letter-spacing: 0.1em; }
+  .hero__lead::before { inset: -30px -20px -20px -20px; }
+
+  /* botão flutuante: pequeno, no canto, sem cobrir o conteúdo */
+  .fab { display: none; } /* o menu de cima já tem "Agendar na DM" sempre visível */
+
+  /* seções */
+  .section, .sec { padding-left: 16px; padding-right: 16px; }
+  .sec__h { font-size: 26px; letter-spacing: 0.08em; }
+  .h2 { font-size: clamp(2rem, 9vw, 2.6rem); }
+  .doors { gap: 36px; }
+  .panel--door { width: 76%; margin: 0 auto; }
+  .door__t { padding: 22px 20px 24px; }
+  .door__h { font-size: 34px; }
+  .door .btn { width: 100%; justify-content: center; }
+  .modes li { grid-template-columns: 46px 1fr; gap: 12px; }
+  .dia { width: 34px; height: 34px; }
+  .stats { gap: 22px 16px; }
+  .final { padding-top: 12vh; padding-bottom: 12vh; }
+  .final__title { font-size: clamp(2.6rem, 13vw, 3.4rem); }
+  .cta-big { padding: 18px 26px; font-size: 15px; }
+
+  /* oráculo */
+  .oraculo .witch-ring { display: none; }
+  .ora { padding: 0; gap: 28px; }
+  .arc { width: 128px; }
+  .ora__pick .btn { width: 100%; justify-content: center; }
+
+  /* painéis (Leituras, Feitiços, Rituais): nome e valor lado a lado, sem enfeites que apertam */
+  .tabp__bar { padding: calc(env(safe-area-inset-top, 0px) + 10px) 14px 10px; }
+  .tabp__x { padding: 9px 12px; font-size: 11px; }
+  .tabp__t { font-size: 24px; gap: 8px; }
+  .tabp__chips { top: 58px; padding: 10px 14px; gap: 8px; }
+  .chip { padding: 8px 11px; font-size: 11px; }
+  .tabp--cat .sec { padding: 30px 14px 10px; }
+  .tabp--cat .svc { grid-template-columns: minmax(0, 1fr) auto; align-items: start; padding: 14px 14px; gap: 0 12px; }
+  .tabp--cat .svc__sep, .tabp--cat .lz, .svc__sep, .lz { display: none; }
+  .tabp--cat .svc__p { font-size: 22px; padding-top: 2px; }
+  .tabp--cat .svc h3 { font-size: 13px; }
+  .tabp--cat .svc p { font-size: 14.5px; }
+  .tabp--cat .frame { padding: 16px 14px; }
+  .tabp--cat .menu__i em { font-size: 1rem; }
+  .tabp--cat .menu__p { font-size: 20px; }
+  .tabp__end { padding: 30px 16px 70px; }
+
+  /* rodapé */
+  .foot__cols { gap: 24px 14px; }
+  .foot__legal { font-size: 12px; }
+}

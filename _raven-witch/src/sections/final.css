@@ -1,0 +1,35 @@
+/* CTA FINAL: a mão solta a luz onde o fluxo termina */
+.final { position: relative; min-height: 150vh; padding: 22vh var(--gutter) 0; text-align: center; overflow: clip; }
+.final__title { font-weight: 400; font-size: clamp(2.9rem, 6.8vw, 7.2rem); line-height: 0.96; letter-spacing: -0.05em; }
+.final__ctas { justify-content: center; margin-top: 40px; }
+.obj--fechamento { position: absolute; left: 50%; bottom: 0; width: max(130vw, 1650px); translate: -50% 0; }
+/* RODAPÉ: colunas pequenas com fio em cima e o wordmark de borda a borda, cortado na base da página */
+.foot { padding: 0; overflow: clip; }
+.foot__cols { margin: 0 var(--fw-m); display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0 24px; padding: 12vh 0 0; }
+.foot__cols div { display: grid; gap: 8px; align-content: start; padding-top: 16px; border-top: 1px solid rgba(190, 160, 255, 0.3); }
+.foot__cols b { font-weight: 500; font-size: var(--t-small); margin-bottom: 6px; }
+.foot__cols a, .foot__cols span { color: var(--ink-2); font-size: 0.9375rem; }
+.foot__cols a:hover { color: #fff; }
+.foot__legal { margin: 56px var(--fw-m) 0; display: flex; justify-content: space-between; gap: 16px; font-size: var(--t-small); color: var(--ink-3); }
+.foot__legal a:hover { color: #fff; }
+/* tamanho e espaçamento calculados em motion/footword.js para a tinta encher a largura exata */
+.foot__word {
+  --fw-ls: -0.055em;
+  margin: 3vh var(--fw-m) 0; font-weight: 500; line-height: 1; letter-spacing: var(--fw-ls); white-space: nowrap;
+  font-size: 30vw; overflow: hidden; display: flex; align-items: flex-start;
+}
+.fw-mark { position: relative; flex: none; width: 0.6em; height: 0.6em; }
+.fw-mark i { position: absolute; width: 50%; height: 50%; background: var(--white); }
+.fw-mark i:first-child { left: 0; top: 0; } .fw-mark i:last-child { right: 0; bottom: 0; }
+.fw-txt { display: block; }
+.fw-base { display: inline-block; width: 0; height: 0; vertical-align: baseline; }
+.foot__word.is-gl { color: transparent; }
+.foot__word.is-gl .fw-mark i { background: transparent; }
+@media (max-width: 760px) {
+  .final { min-height: 112vh; padding-top: 16vh; }
+  .final__ctas { flex-direction: column; align-items: stretch; max-width: 340px; margin-inline: auto; }
+  .final__ctas .btn { justify-content: center; }
+  .obj--fechamento { width: 300vw; }
+  .foot__cols { grid-template-columns: 1fr 1fr; gap: 28px 16px; padding-top: 10vh; }
+  .foot__legal { flex-direction: column; margin-top: 36px; }
+}

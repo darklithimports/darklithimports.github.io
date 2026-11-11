@@ -1,0 +1,31 @@
+:root {
+  --black: #0b0810;              /* preto-vinho */
+  --white: #f6eee2;
+  --t1: #f6eee2; --t2: #e6d8c4; --t3: #9c7a8e;
+  --tx: #eadcdf; --tx2: #a89a94;
+  --wine: rgba(120, 40, 110, 0.38);
+  --bd: rgba(214, 196, 172, 0.55); --bd2: rgba(214, 196, 172, 0.2);
+  --ink: #050307; --paper: #eee4d3; --paper-ink: #140c12;
+  --ink-2: rgba(238, 228, 211, 0.8);
+  --ink-3: #a89a94;
+  --line: rgba(214, 196, 172, 0.2);
+  --lilac: #e6d8c4; --violet: #9c7a8e;
+  --font: 'Cormorant Garamond', Georgia, serif;
+  --cap: 'Pixelify Sans', 'Cinzel', monospace;
+  --deco: 'Pixelify Sans', 'Cinzel', monospace;
+  --serif: 'Cormorant Garamond', Georgia, serif;
+  --t-hero: min(10.2vw, 21vh);
+  --t-h2: clamp(2.4rem, 4.6vw, 4.6rem);
+  --t-body: 1.125rem;
+  --t-small: 0.9375rem;
+  --t-micro: 0.75rem;
+  --track-hero: 0.01em;
+  --r-btn: 2px;
+  --r-card: 2px;
+  --gutter: clamp(20px, 3.6vw, 64px);
+  --maxw: 1200px;
+  --fw-m: max(8px, 2vw);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --top-h: 108px;
+  color-scheme: dark;
+}

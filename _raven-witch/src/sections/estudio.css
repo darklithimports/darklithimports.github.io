@@ -1,0 +1,13 @@
+.estudio__head { display: grid; gap: 0; max-width: 640px; }
+.estudio__head .lead { margin-top: 26px; }
+.servicos { margin-top: clamp(40px, 7vh, 80px); display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(24px, 3vw, 48px); }
+.servico { display: grid; gap: 28px; align-content: start; min-width: 0; }
+.obj--servico { height: clamp(220px, 34vh, 360px); margin: 0 auto; max-width: 100%; }
+.servico__txt { display: grid; gap: 8px; padding-top: 20px; border-top: 1px solid var(--line); }
+.servico__k { font-size: var(--t-micro); font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3); }
+.servico__txt b { font-weight: 500; font-size: 1.25rem; letter-spacing: -0.02em; }
+.servico__txt p { color: var(--ink-2); font-size: 0.9375rem; }
+.servico__txt small { font-size: 0.875rem; color: var(--ink-3); }
+@media (max-width: 860px) { .servicos { grid-template-columns: 1fr; gap: 64px; } }
+/* Raven Witch: dois caminhos */
+@media (min-width: 861px) { .servicos { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 1040px; } }

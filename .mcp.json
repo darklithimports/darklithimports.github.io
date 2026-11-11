@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "profitize": {
+      "type": "http",
+      "url": "https://mcp.profitize.com.br/mcp"
+    }
+  }
+}
